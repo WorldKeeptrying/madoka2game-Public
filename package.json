@@ -1,0 +1,26 @@
+{
+  "name": "madoka-text-adventure",
+  "version": "2.0.0",
+  "private": true,
+  "description": "《银之庭院》—— 以《魔法少女小圆》为基调的文字探险游戏。终端版 + 网页版共用同一份核心（shared/）",
+  "main": "src/main.js",
+  "bin": {
+    "madoka": "src/main.js"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "web": "node tools/serve.js",
+    "check": "node tools/check-sync.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT",
+  "keywords": [
+    "madoka",
+    "text-adventure",
+    "cli-game",
+    "browser-game",
+    "nodejs"
+  ]
+}

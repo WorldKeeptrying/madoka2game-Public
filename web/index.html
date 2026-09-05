@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="madoka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#24101c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="银之庭院 —— 致敬《魔法少女小圆》的文字冒险（鹿目圆 / 晓美焰 双主题）">
+  <title>银之庭院</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── 公告板 ───────────────────────────────── -->
+    <section id="screen-board" class="screen">
+      <header class="topbar">
+        <div class="theme-toggle" role="group" aria-label="主题切换">
+          <span class="theme-label">主题</span>
+          <button type="button" class="chip" data-theme="madoka">鹿目圆</button>
+          <button type="button" class="chip" data-theme="homura">晓美焰</button>
+        </div>
+      </header>
+
+      <main class="board-main">
+        <div class="board-card">
+          <span class="pin tl"></span><span class="pin tr"></span>
+          <span class="pin bl"></span><span class="pin br"></span>
+          <h1 id="board-title" class="board-title"></h1>
+          <p id="board-sub" class="board-sub"></p>
+          <div class="board-divider"></div>
+          <div id="board-body" class="board-body"></div>
+        </div>
+        <p id="board-foot" class="board-foot"></p>
+        <p id="board-mode" class="board-mode"></p>
+        <nav id="board-menu" class="menu"></nav>
+      </main>
+
+      <footer class="hintbar">
+        <span>点击选择 · 也可以按 ↑ ↓ 与 Enter</span>
+        <span id="board-hint" class="hint-sub"></span>
+      </footer>
+    </section>
+
+    <!-- ── 庭院的规矩 ───────────────────────────── -->
+    <section id="screen-about" class="screen hidden">
+      <div id="about-body" class="about-body"></div>
+      <nav class="menu">
+        <button id="about-back" class="menu-item" type="button"><span class="label">回到公告板</span></button>
+      </nav>
+    </section>
+
+    <!-- ── 游戏进行中 ───────────────────────────── -->
+    <section id="screen-play" class="screen hidden">
+      <header class="play-head">
+        <div class="play-head-row">
+          <span id="place-name" class="place-name"></span>
+          <span id="theme-tag" class="theme-tag"></span>
+        </div>
+        <div class="bars">
+          <div class="bar">
+            <span class="bar-label">生命</span>
+            <div class="bar-track"><i id="bar-hp" class="bar-fill"></i></div>
+            <span id="bar-hp-text" class="bar-text"></span>
+          </div>
+          <div class="bar">
+            <span class="bar-label">灵魂宝石</span>
+            <div class="bar-track"><i id="bar-gem" class="bar-fill"></i></div>
+            <span id="bar-gem-text" class="bar-text"></span>
+          </div>
+          <div class="bar" id="row-enemy">
+            <span class="bar-label">敌人</span>
+            <div class="bar-track"><i id="bar-enemy" class="bar-fill"></i></div>
+            <span id="bar-enemy-text" class="bar-text"></span>
+          </div>
+          <div class="bar" id="row-items">
+            <span id="stat-text" class="stat-text"></span>
+          </div>
+        </div>
+      </header>
+
+      <div id="log" class="log" aria-live="polite"></div>
+      <nav id="actions" class="menu actions"></nav>
+      <div id="fx-overlay" class="fx-layer" aria-hidden="true"></div>
+    </section>
+
+    <!-- ── 结局 ─────────────────────────────────── -->
+    <section id="screen-ending" class="screen hidden">
+      <div class="ending-card">
+        <h2 id="ending-title" class="ending-title"></h2>
+        <div id="ending-body" class="ending-body"></div>
+      </div>
+      <nav class="menu">
+        <button id="ending-back" class="menu-item" type="button"><span class="label">回到公告板</span></button>
+      </nav>
+    </section>
+
+    <!-- ── 离开（浏览器无法自己关闭标签页） ─────── -->
+    <section id="screen-bye" class="screen hidden">
+      <div class="ending-card">
+        <h2 class="ending-title">门在身后合上了</h2>
+        <div class="ending-body"><p>你可以关掉这个标签页了。</p><p class="dim">（终端版在这里会直接退出程序）</p></div>
+      </div>
+      <nav class="menu">
+        <button id="bye-back" class="menu-item" type="button"><span class="label">再回来一次</span></button>
+      </nav>
+    </section>
+
+  </div>
+
+  <!-- 共享核心：终端版与网页版用的是同一批文件 -->
+  <script src="../shared/themes.js"></script>
+  <script src="../shared/content.js"></script>
+  <script src="../shared/engine.js"></script>
+  <script src="../shared/flow.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
